@@ -81,9 +81,26 @@ it illustrates a few really important points:
 - right weighting of a derivative at x0. 
 - of you add enough terms in Taylor series, it becomes 'perfect'.
 
+**Truncation Error**
+In principle we can use Taylor series to approximate a (sufficiently smooth) function with arbitrary accuracy as long as we use sufficiently many terms, but in practice we will always have to truncate.
 
 
 
+**Summary**
+
+- Modelling involves multiple steps - it takes us from some real process to a solution obtained on a finite computer. 
+- Assumptions and approximations are utilised at every stage. Choices made at every stage could be the difference between a useful model (and numerical result) and a useless one.
+
+
+- Physical as well as numerical parameter choices (and their combination) may or may not lead to wildly different solutions, and hence both lead to useful or useless results.
+
+- This last point is related to the concept of numerical stability - an algorithm can go unstable which means its solution is useless. 
+- Often but not always this involves the algorithm returning an essentially infinite value - informally we say the simulation/calculation has blown-up.
+- So stability is generally dependent on a combination of both numerical parameter choices as well as the underlying "physics". 
+- If you change the "physics" you will generally need to change the numerical parameter choices (or even the entire solver choice) to get good results.
+
+
+- Errors accumulate (and how we can use big-O notation to both write down the sizes of errors as well as the complexity of algorithms).
 
 
 
