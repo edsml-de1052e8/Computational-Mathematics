@@ -58,6 +58,62 @@ NB: don't do one simulation, testing round & do sensitivity testing
 - Calibration can be via trial and error (and hence user experience is very important), or it can be automated.  
 - Don't use an unphysical parameter to calibrate model 
 
+**Errors**
+
+**Magnitudes**
+
+- The absolute error is defined as the magnitude of the difference
+- The relative error is defined as ;insert equation; from which if we want we can obtain a percentage error if we multiple by 100:
+
+
+**Norms**
+
+- A norm on some space (could be finite dimensional, e.g. the space of all vectors, matrices; or it could be infinite dimensional, e.g. the space of all continuous functions) is a function which assigns to every entry in that space a size.
+- It is often denoted by the operator  ‖⋅‖  (where  ⋅  is a placeholder symbol indicating that we stick in the thing we are measuring the size of) 
+
+- What norm you are using matters: for vectors of different length and outliers
+- Better to plot fitted line over values more or less aligned and omit the errors on that line (make it stop before)
+
+- Max norm not really affected when using value at the final time 
+
+**Code Verification: Comparing algorithms**
+
+- We have three scenarios:
+
+1. We can find an analytic solution where we don't need to simplify the type of problem we want to solve.
+2. We need to simplify our problem in order to find an analytic solution.
+3. We can construct a solution to the full problem (plus some extra terms, i.e. arguably more complex rather than simplified!).
+
+- when testing try testing with at least two different simplifications 
+
+- Now with PDEs we don't have much chance of finding an exact solution to a general problem we write done, but with ODEs we have a chance.
+
+Python has a symbolic math package called SymPy.
+
+**Plotting errors using a log-log plot**
+
+- Why did we plot the convergence of the method (i.e. the error as a function of interval size (or number of subintervals)) using logarithmic scales on both the  𝑥  and the  𝑦  axis?
+
+- This is a very common thing to do when we think we have some polynomial relationship.
+
+- In our case of ODE solvers, based on the Taylor series derivation where we we truncated the full expression by throwing away the second order terms, we can expect the error to be dominated for small  Δ𝑡  values by the quadratic terms
+
+- The line is not necessarily straight to the right of the image (i.e. for larger  Δ𝑡  values) as other (higher-order) parts of the full error expansion are contributing to the total error in a non-trivial manner. 
+
+
+**The Method of Manufactured Solutions (MMS)**
+
+Let's suppose for whatever reason we couldn't find a convenient exact solution - there just isn't one we can write down in analytic form, we don't know how to use symbolic tools, it's too difficult or we don't have time, ...
+
+This is where the Method of Manufactured Solutions provides a very powerful and convenient approach.
+
+
+
+
+
+
+
+
 
 
 
