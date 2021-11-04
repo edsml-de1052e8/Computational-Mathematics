@@ -108,7 +108,23 @@ Let's suppose for whatever reason we couldn't find a convenient exact solution -
 This is where the Method of Manufactured Solutions provides a very powerful and convenient approach.
 
 
+- first write the manufactured solution then find the function and the ODE that it is the exact solution to. 
+- write exact solution -> differentiate it -> go back to the solution by finding the f
 
+
+
+**MMS for PDEs**
+
+- Since we choose  𝑦mms  we can compute the appropriate derivatives etc contained in  𝐿  analytically and have an exact expression for the RHS residual - in typical O/PDE language we effectively have an additional source term.
+
+- We simply update our code with this additional source term and conduct a convergence analysis using  𝑦mms  as the exact solution.
+
+
+**Other errors**
+
+- rounding off
+- Truncation errors
+- overflow
 
 
 
