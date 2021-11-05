@@ -151,7 +151,72 @@ So while we need to be aware of the existence of this constant, for the purpose 
 - If the function is complicated or unknown, we can approximate its value or variation (and hence integral) across/within each of these subintervals
 - so I = I1+I2 w/ I1 and I2 being subintervals to be integrated
 - Better approximation methods as well as smaller subintervals (and hence a larger number of intervals to cover our total interval of interest:  [𝑎,𝑏] ), will lead to lower errors, but will generally cost more to compute of course.
-- 
+
+
+**The Midpoint Rule**
+
+- For reasons that should be obvious from the next figure it is sometimes also called the rectangle method.
+
+Consider one of the subintervals  [𝑥𝑖,𝑥𝑖+1]. 
+The midpoint rule approximates the integral over this (the  𝑖 -th) subinterval by the area of a rectangle, with a base of length  (𝑥𝑖+1−𝑥𝑖)  and a height given by the value of  𝑓(𝑥)  at the midpoint of that interval (i.e. at  𝑥=(𝑥𝑖+1+𝑥𝑖)/2 )
+
+- Note that SciPy does contain a function for the trapezoid rule, scipy.integrate.trapz, or scipy.integrate.trapezoid depending on what version you're using.
+
+- For the "concave-down" (i.e. the first half of a sine wave) function we chose above, notice from the plot that the trapezoidal rule will consistently underestimate the area under the curve, as the line segments approximating the function are always under the concave function curve.
+
+- In contrast, the mid-point rule will have parts of each rectangle above and below the curve, hence to a certain extent the errors will cancel each other out.
+
+
+We know analytically that
+
+∫10𝑥2𝑑𝑥=13𝑥3||||10=13.
+ 
+Whereas numerically the midpoint rule on a single interval gives an approximation of
+
+𝐼𝑀=1(12)2=14,
+ 
+while the trapezoidal rule gives
+
+𝐼𝑇=10+122=12.
+ 
+The error for  𝐼𝑀  is therefore  1/3−1/4=1/12 , while the error for  𝐼𝑇  is  1/3−1/2=−1/6 .
+
+Therefore, the midpoint rule is twice as accurate as the trapezoid rule:
+
+|𝐸𝑀|=12|𝐸𝑇|,
+ 
+where  |𝐸|  indicates the error (the absolute value of the difference from the exact solution).
+
+
+**Simpson's rule**
+
+- Knowing the error estimates from the two rules explored so far opens up the potential for us to combine them in an appropriate manner to create a new quadrature rule, generally more accurate than either one separately.
+- Uses multiple intervals (3 points),  value in the middle AND the intervals at both ends (start, end)
+- doing 3 function evaluatuons
+
+### Summary
+
+- Interpolation (going through all data points) vs regression/curve-fitting (not attempting to fit all data - think cloud of points).
+
+- Minimal degree interpolating polynomial unique, hence different construction methods arrive at the same polynomial - but choice of basis impacts on the cost and implementation of obtaining the polynomial.
+
+- Problems with high-degree polynomial interpolation when using uniform data points.
+
+- Many sophisticated interpolation approaches available with different properties, optimal choice depends on your application and requirements.
+
+- Extrapolaton - try not to do it if at all possible.
+
+- Curve-fitting/regression - Least squares (note we saw in an earlier lecture an example that used minimisation of other norms to fit a line to data, more on this in the module Inversion & Optimisation in the context of inversion for over-determined problems).
+
+- Simple 1D qudrature rules (up to and including Simpson's rule) - derivation, implementation and testing against SciPy.
+
+- Many of these concepts carry over to other areas of numerical methods, optimisation & inversion, data science, machine learning, ...
+
+
+Note that in higher dimensions similar ideas to those presented in this lecture in 1D can also be applied.
+
+
+
 
 
 
