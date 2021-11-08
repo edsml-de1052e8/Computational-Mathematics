@@ -75,14 +75,30 @@ NB: data_prior is P(X)
 **Accuracy**
 
 - Defined as the ratio of correct predictions with total number of predictions for the classifier
-- 
+- However, there is something VERY WRONG about using the same data for both model training and for testing/inference...
 
+- We are using the same data to train the model and then test it - this is like giving a student the model answers during an exam. 
+- The correct way would be to split our data into training and testing sets, where we use the training dataset to train our model, and then the test dataset to evaluate its performance.
 
+**Likelihood**
 
+- Expresses uncertainty about distribution of data rather than data itself.
+- The likelihood can be defined as the function of Lx (theta) = P(x|theta) where $\theta$ are **parameters** describing the probability distribution function. 
+- It represents the likelihood of observing the data $\mathbf{x}$ for the random variable $X$ given the model parameters.
+- log of products is sum of multipliying logs -> trying to maximise likelihood, same as minimising the negative log likelihood (feed into optimisation)
+- Maximum likelihood estimation: calculate the likelihood of observing the data we have ($\mathbf{x}$), for different values of the model parameters ($\theta$), choosing the value of $\theta$ that maximises $L_x(\theta)$
 
+NB: P (theta|x) is said 'probability of theta given x. 
 
+- Maximum a posteriori estimation: trying to find the theta that maximises arg max theta P(theta|x). 
 
+- Linear regression:  fitting a straight line to data points
+y= Beta0 + Beta1x
 
+Some assumptions for linear regression: 
+- The residuals are all independent 
+- The residuals are identically distributed, i.e. they are all drawn from the same distribution (e.g. same mean and variance) 
+- The mean of the distribution of residuals is zero
 
 
 
